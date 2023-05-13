@@ -44,33 +44,38 @@ const Start = ({ navigation }) => {
 									styles.colorButton,
 									{ backgroundColor: '#090C08' },
 								]}
-								onPress={() =>
-									setBackgroundColor('#090C08')
-								}></TouchableOpacity>
+								onPress={() => setBackgroundColor('#090C08')}
+								accessible={true}
+								accessibilityLabel='Select color'
+								accessibilityHint='Lets you choose black as a color for your chat background.'
+								accessibilityRole='button'></TouchableOpacity>
 							<TouchableOpacity
 								style={[
 									styles.colorButton,
 									{ backgroundColor: '#474056' },
 								]}
-								onPress={() =>
-									setBackgroundColor('#474056')
-								}></TouchableOpacity>
+								onPress={() => setBackgroundColor('#474056')}
+								accessibilityLabel='Select color'
+								accessibilityHint='Lets you choose dark purple as a color for your chat background.'
+								accessibilityRole='button'></TouchableOpacity>
 							<TouchableOpacity
 								style={[
 									styles.colorButton,
 									{ backgroundColor: '#8A95A5' },
 								]}
-								onPress={() =>
-									setBackgroundColor('#8A95A5')
-								}></TouchableOpacity>
+								onPress={() => setBackgroundColor('#8A95A5')}
+								accessibilityLabel='Select color'
+								accessibilityHint='Lets you choose pale blue as a color for your chat background.'
+								accessibilityRole='button'></TouchableOpacity>
 							<TouchableOpacity
 								style={[
 									styles.colorButton,
 									{ backgroundColor: '#B9C6AE' },
 								]}
-								onPress={() =>
-									setBackgroundColor('#B9C6AE')
-								}></TouchableOpacity>
+								onPress={() => setBackgroundColor('#B9C6AE')}
+								accessibilityLabel='Select color'
+								accessibilityHint='Lets you choose sage green as a color for your chat background.'
+								accessibilityRole='button'></TouchableOpacity>
 						</View>
 					</View>
 
@@ -82,7 +87,10 @@ const Start = ({ navigation }) => {
 								name: name,
 								backgroundColor: backgroundColor,
 							})
-						}>
+						}
+						accessibilityLabel='Start chatting'
+						accessibilityHint='Lets you enter the chat.'
+						accessibilityRole='button'>
 						<Text style={styles.buttonText}>Start Chatting</Text>
 					</TouchableOpacity>
 				</View>
