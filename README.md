@@ -48,4 +48,4 @@ The achievement objective is to build a chat app for mobile devices using React 
 
 ## Web View
 
-![Meet App web view](https://github.com/NeleSchallenberg/chat-app/blob/main/files/screenshot.png)
+![Meet App web view](https://github.com/NeleSchallenberg/chat-app/blob/main/assets/screenshot.png)
