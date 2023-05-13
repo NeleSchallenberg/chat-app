@@ -7,6 +7,7 @@ import {
 	Text,
 	TextInput,
 	TouchableOpacity,
+	KeyboardAvoidingView,
 } from 'react-native';
 
 // Create start screen
@@ -86,6 +87,9 @@ const Start = ({ navigation }) => {
 					</TouchableOpacity>
 				</View>
 			</View>
+			{Platform.OS === 'ios' ? (
+				<KeyboardAvoidingView behavior='padding' />
+			) : null}
 		</ImageBackground>
 	);
 };
