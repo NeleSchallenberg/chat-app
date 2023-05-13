@@ -35,7 +35,7 @@ const Start = ({ navigation }) => {
 					{/* Background color container */}
 					<View style={styles.colorContainer}>
 						<Text style={styles.choseColorText}>
-							Choose background color:
+							Choose your background color:
 						</Text>
 						<View style={styles.colorRow}>
 							<TouchableOpacity
