@@ -26,8 +26,6 @@ The achievement objective is to build a chat app for mobile devices using React 
 -   As a user with a visual impairment, I want to use a chat app that is compatible with a screen
     reader so that I can engage with a chat interface.
 
----
-
 ## Technical requirements
 
 -   The app must be written in React Native
