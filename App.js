@@ -38,7 +38,6 @@ export default function App() {
 				<Stack.Screen name='Chat'>
 					{(props) => <Chat db={db} {...props} />}
 				</Stack.Screen>
-				{/* <Stack.Screen name='Chat' component={Chat} /> */}
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

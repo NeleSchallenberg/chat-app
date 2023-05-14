@@ -106,12 +106,6 @@ const Start = ({ navigation }) => {
 					<TouchableOpacity
 						style={styles.button}
 						onPress={signInUser}
-						// onPress={() =>
-						// 	navigation.navigate('Chat', {
-						// 		name: name,
-						// 		backgroundColor: backgroundColor,
-						// 	})
-						// }
 						accessibilityLabel='Start chatting'
 						accessibilityHint='Lets you enter the chat.'
 						accessibilityRole='button'>
