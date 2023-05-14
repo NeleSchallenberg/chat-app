@@ -87,11 +87,10 @@ const styles = StyleSheet.create({
 	// Main view
 	container: {
 		flex: 1,
-		// justifyContent: 'center',
-		// alignItems: 'center',
+		justifyContent: 'center',
 	},
 
-	// Welcome message
+	// Welcome messages
 	welcomeMessage: {
 		fontSize: 40,
 		fontWeight: 600,
