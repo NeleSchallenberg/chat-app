@@ -11,7 +11,7 @@ import {
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 
 // Create chat screen
-const Chat = ({ route, navigation }) => {
+const Chat = ({ route, navigation, db }) => {
 	const { name, backgroundColor } = route.params;
 	// Initialize messages state
 	const [messages, setMessages] = useState([]);
