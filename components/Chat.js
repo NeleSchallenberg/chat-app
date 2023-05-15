@@ -56,16 +56,6 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		// Display username in navigation header
 		navigation.setOptions({ title: name });
 
-		// // Static system message
-		// setMessages([
-		// 	{
-		// 		_id: 2,
-		// 		text: `${name} has joined the group`,
-		// 		createdAt: new Date(),
-		// 		system: true,
-		// 	},
-		// ]);
-
 		// Create listener on query that targets messages collection
 		const q = query(
 			collection(db, 'messages'),
