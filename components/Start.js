@@ -169,10 +169,12 @@ const styles = StyleSheet.create({
 		fontWeight: 300,
 		color: '#757083',
 		opacity: 100,
-		marginBottom: 12,
+		marginBottom: 15,
+		marginTop: 20,
 	},
 	colorRow: {
 		flexDirection: 'row',
+		marginBottom: 20,
 	},
 	colorButton: {
 		width: 40,
