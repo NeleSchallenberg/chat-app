@@ -1,13 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Import react native components
-import {
-	StyleSheet,
-	View,
-	Text,
-	KeyboardAvoidingView,
-	Platform,
-} from 'react-native';
+import { StyleSheet, View, KeyboardAvoidingView, Platform } from 'react-native';
 
 // Import Gifted Chat library
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
@@ -21,6 +15,9 @@ import {
 	orderBy,
 	addDoc,
 } from 'firebase/firestore';
+
+// Import async storage package
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Create chat screen
 const Chat = ({ route, navigation, db, isConnected }) => {
@@ -61,7 +58,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 			collection(db, 'messages'),
 			orderBy('createdAt', 'desc')
 		);
-		const unsubChat = onSnapshot(q, (documentsSnapshot) => {
+		const unsubChat = onSnapshot(q, async (documentsSnapshot) => {
 			let newMessages = [];
 			documentsSnapshot.forEach((doc) => {
 				newMessages.push({
@@ -70,6 +67,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 					createdAt: new Date(doc.data().createdAt.toMillis()),
 				});
 			});
+			cacheMessages(newMessages);
 			setMessages(newMessages);
 		});
 
@@ -78,6 +76,18 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 			if (unsubChat) unsubChat();
 		};
 	}, []);
+
+	// Fetch and cache messages from database
+	const cacheMessages = async (MessagesToCache) => {
+		try {
+			await AsyncStorage.setItem(
+				'messages',
+				JSON.stringify(MessagesToCache)
+			);
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
 
 	return (
 		// Render chat interface
