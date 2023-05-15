@@ -49,33 +49,41 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		);
 	};
 
+	let unsubChat;
+
 	useEffect(() => {
 		// Display username in navigation header
 		navigation.setOptions({ title: name });
 
-		// Create listener on query that targets messages collection
-		const q = query(
-			collection(db, 'messages'),
-			orderBy('createdAt', 'desc')
-		);
-		const unsubChat = onSnapshot(q, async (documentsSnapshot) => {
-			let newMessages = [];
-			documentsSnapshot.forEach((doc) => {
-				newMessages.push({
-					id: doc.id,
-					...doc.data(),
-					createdAt: new Date(doc.data().createdAt.toMillis()),
+		if (isConnected === true) {
+			// Avoid registering multiple listeners when useEffect code is re-executed
+			if (unsubChat) unsubChat();
+			unsubChat = null;
+
+			// Create listener on query that targets messages collection
+			const q = query(
+				collection(db, 'messages'),
+				orderBy('createdAt', 'desc')
+			);
+			unsubChat = onSnapshot(q, async (documentsSnapshot) => {
+				let newMessages = [];
+				documentsSnapshot.forEach((doc) => {
+					newMessages.push({
+						id: doc.id,
+						...doc.data(),
+						createdAt: new Date(doc.data().createdAt.toMillis()),
+					});
 				});
+				cacheMessages(newMessages);
+				setMessages(newMessages);
 			});
-			cacheMessages(newMessages);
-			setMessages(newMessages);
-		});
+		} else loadCachedMessages();
 
 		// Clean up code
 		return () => {
 			if (unsubChat) unsubChat();
 		};
-	}, []);
+	}, [isConnected]);
 
 	// Fetch and cache messages from database
 	const cacheMessages = async (MessagesToCache) => {
@@ -87,6 +95,12 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		} catch (error) {
 			console.log(error.message);
 		}
+	};
+
+	// Load messages from cache when offline
+	const loadCachedMessages = async () => {
+		const cachedMessages = (await AsyncStorage.getItem('messages')) || [];
+		setMessages(JSON.parse(cachedMessages));
 	};
 
 	return (
