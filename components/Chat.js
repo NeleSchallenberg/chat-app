@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, View, KeyboardAvoidingView, Platform } from 'react-native';
 
 // Import Gifted Chat library
-import { GiftedChat, Bubble } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
 
 // Import firebase functions
 import {
@@ -49,6 +49,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		);
 	};
 
+	// Declare variable outside useEffect callback function
 	let unsubChat;
 
 	useEffect(() => {
@@ -103,12 +104,19 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		setMessages(JSON.parse(cachedMessages));
 	};
 
+	// Prevent rendering of input toolbar
+	const renderInputToolbar = (props) => {
+		if (isConnected) return <InputToolbar {...props} />;
+		else return null;
+	};
+
 	return (
 		// Render chat interface
 		<View style={{ ...styles.container, backgroundColor: backgroundColor }}>
 			<GiftedChat
 				messages={messages}
 				renderBubble={renderBubble}
+				renderInputToolbar={renderInputToolbar}
 				onSend={(messages) => onSend(messages)}
 				user={{
 					_id: userID,
