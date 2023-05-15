@@ -91,10 +91,9 @@ const Chat = ({ route, navigation, db }) => {
 
 	return (
 		// Render chat interface
-		<View style={styles.container}>
+		<View style={{ ...styles.container, backgroundColor: backgroundColor }}>
 			<GiftedChat
 				messages={messages}
-				backgroundColor={backgroundColor}
 				renderBubble={renderBubble}
 				onSend={(messages) => onSend(messages)}
 				user={{
