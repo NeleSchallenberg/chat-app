@@ -170,11 +170,11 @@ const styles = StyleSheet.create({
 		color: '#757083',
 		opacity: 100,
 		marginBottom: 15,
-		marginTop: 20,
+		marginTop: 30,
 	},
 	colorRow: {
 		flexDirection: 'row',
-		marginBottom: 20,
+		marginBottom: 30,
 	},
 	colorButton: {
 		width: 40,
