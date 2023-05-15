@@ -23,7 +23,7 @@ import {
 } from 'firebase/firestore';
 
 // Create chat screen
-const Chat = ({ route, navigation, db }) => {
+const Chat = ({ route, navigation, db, isConnected }) => {
 	const { name, backgroundColor } = route.params;
 	const { userID } = route.params;
 
