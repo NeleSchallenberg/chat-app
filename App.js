@@ -20,6 +20,8 @@ import { useNetInfo } from '@react-native-community/netinfo';
 import { useEffect } from 'react';
 import { Alert } from 'react-native';
 
+import { getStorage } from 'firebase/storage';
+
 // Export root component
 const App = () => {
 	// Firebase configuration
@@ -37,6 +39,9 @@ const App = () => {
 
 	// Initialize Cloud Firestore and get reference to service
 	const db = getFirestore(app);
+
+	// Initialize storage handler
+	const storage = getStorage(app);
 
 	// Create navigator
 	const Stack = createNativeStackNavigator();
@@ -64,6 +69,7 @@ const App = () => {
 					{(props) => (
 						<Chat
 							db={db}
+							storage={storage}
 							{...props}
 							isConnected={connectionStatus.isConnected}
 						/>
