@@ -52,8 +52,7 @@ The achievement objective is to build a chat app for mobile devices using React 
 
 ## Dependencies
 
-```
-"@expo/webpack-config": "^18.0.4",
+`"@expo/webpack-config": "^18.0.4",
 "@react-navigation/native": "^6.1.6",
 "@react-navigation/native-stack": "^6.9.12",
 "expo": "~48.0.16",
@@ -70,8 +69,7 @@ The achievement objective is to build a chat app for mobile devices using React 
 "@react-native-async-storage/async-storage": "1.17.11",
 "expo-image-picker": "~14.1.1",
 "expo-location": "~15.1.1",
-"react-native-maps": "1.3.2"
-```
+"react-native-maps": "1.3.2"`
 
 ## Setting up the app
 
