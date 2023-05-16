@@ -101,12 +101,13 @@ The achievement objective is to build a chat app for mobile devices using React 
 
 ## Links
 
-[Project Brief](https://images.careerfoundry.com/public/courses/fullstack-immersion/full-stack-project-briefs/A5-Project-Brief-Mar2023.pdf)
+-   [Project Brief](https://images.careerfoundry.com/public/courses/fullstack-immersion/full-stack-project-briefs/A5-Project-Brief-Mar2023.pdf)
+-   [React Native](https://reactnative.dev/)
+-   [Expo](https://expo.dev/)
+-   [Google Firestore Database](https://firebase.google.com/)
+-   Google Firebase Authentication
+-   [React Native Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
 
 ## Web View
 
 ![Meet App web view](https://github.com/NeleSchallenberg/chat-app/blob/main/assets/screenshot.png)
-
-```
-
-```
