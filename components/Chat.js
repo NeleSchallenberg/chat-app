@@ -12,7 +12,6 @@ import {
 	collection,
 	onSnapshot,
 	query,
-	where,
 	orderBy,
 	addDoc,
 } from 'firebase/firestore';
@@ -20,8 +19,14 @@ import {
 // Import async storage package
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Import MapView component
+import MapView from 'react-native-maps';
+
+// Import location API
+import * as Location from 'expo-location';
+
 // Create chat screen
-const Chat = ({ route, navigation, db, isConnected }) => {
+const Chat = ({ route, navigation, db, isConnected, storage }) => {
 	const { name, backgroundColor } = route.params;
 	const { userID } = route.params;
 
@@ -113,7 +118,31 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 
 	// Create custom actions component
 	const renderCustomActions = (props) => {
-		return <CustomActions {...props} />;
+		return <CustomActions storage={storage} {...props} />;
+	};
+
+	// Check if the current message contains location data
+	const renderCustomView = (props) => {
+		const { currentMessage } = props;
+		if (currentMessage.location) {
+			return (
+				<MapView
+					style={{
+						width: 150,
+						height: 100,
+						borderRadius: 13,
+						margin: 3,
+					}}
+					region={{
+						latitude: currentMessage.location.latitude,
+						longitude: currentMessage.location.longitude,
+						latitudeDelta: 0.0922,
+						longitudeDelta: 0.0421,
+					}}
+				/>
+			);
+		}
+		return null;
 	};
 
 	return (
@@ -125,6 +154,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 				renderInputToolbar={renderInputToolbar}
 				onSend={(messages) => onSend(messages)}
 				renderActions={renderCustomActions}
+				renderCustomView={renderCustomView}
 				user={{
 					_id: userID,
 					name: name,
