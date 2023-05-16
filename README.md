@@ -42,6 +42,57 @@ The achievement objective is to build a chat app for mobile devices using React 
 -   The chat interface and functionality must be created using the Gifted Chat library
 -   The app’s codebase must contain comments
 
+## Tech stack
+
+-   [React Native](https://reactnative.dev/)
+-   [Expo](https://expo.dev/)
+-   [Google Firestore Database](https://firebase.google.com/)
+-   Google Firebase Authentication
+-   [React Native Gifted Chat](https://github.com/FaridSafi/react-native-gifted-chat)
+
+## Dependencies
+
+"@react-navigation/native": "^6.1.6",
+"@react-navigation/native-stack": "^6.9.12",
+"expo": "~48.0.9",
+"expo-status-bar": "~1.4.4",
+"firebase": "^9.13.0",
+"react": "18.2.0",
+"react-native": "0.71.6",
+"react-native-gifted-chat": "^2.0.1",
+"react-native-safe-area-context": "4.5.0",
+"react-native-screens": "~3.20.0",
+"@react-native-async-storage/async-storage": "1.17.11",
+"@react-native-community/netinfo": "9.3.7",
+"expo-location": "~15.1.1",
+"react-native-maps": "1.3.2",
+"expo-media-library": "~15.2.3",
+"expo-image-picker": "~14.1.1",
+
+## Setting up the app
+
+-   Clone the repository `git clone https://github.com/NeleSchallenberg/chat-app.git`
+-   Install and use nodejs version 16.19.0
+
+### Expo
+
+-   Install Expo CLI as a global npm package: npm add global expo-cli
+-   Create an account and log in at https://expo.dev/
+-   Follow expo CLI's instructions
+-   Install the [Expo Go](https://expo.dev/client) app on your phone for testing
+-   Install [Android Studio](https://developer.android.com/studio) to use Android Emulator or [Xcode](https://apps.apple.com/de/app/xcode/id497799835?mt=12) for to use iOS Simulator for testing
+-   Start the project: npx expo start
+-   Scan the QR code provided in your terminal
+
+### Firebase/ Firestore
+
+-   Sign in at Google Firebase
+-   Create a new project
+-   Inside the project, create a Firestore Database
+-   At 'Settings' -> 'General' -> 'Your apps' -> 'Firestore for Web' generate your configuration object.
+-   In the `App.js` file replace the `firebaseConfig` variable with the configuration info from your own Firestore database
+-   Run `npx expo install` and then `npx expo start`
+
 ## Links
 
 [Project Brief](https://images.careerfoundry.com/public/courses/fullstack-immersion/full-stack-project-briefs/A5-Project-Brief-Mar2023.pdf)
