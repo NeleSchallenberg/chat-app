@@ -120,6 +120,7 @@ const Start = ({ navigation }) => {
 	);
 };
 
+/* ---------- STYLING ---------- */
 const styles = StyleSheet.create({
 	// Main view
 	container: {

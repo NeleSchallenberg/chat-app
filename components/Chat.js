@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CustomActions from './CustomActions';
 
 // Import react native components
 import { StyleSheet, View, KeyboardAvoidingView, Platform } from 'react-native';
@@ -110,6 +111,11 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 		else return null;
 	};
 
+	// Create custom actions component
+	const renderCustomActions = (props) => {
+		return <CustomActions {...props} />;
+	};
+
 	return (
 		// Render chat interface
 		<View style={{ ...styles.container, backgroundColor: backgroundColor }}>
@@ -118,6 +124,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 				renderBubble={renderBubble}
 				renderInputToolbar={renderInputToolbar}
 				onSend={(messages) => onSend(messages)}
+				renderActions={renderCustomActions}
 				user={{
 					_id: userID,
 					name: name,
@@ -130,6 +137,7 @@ const Chat = ({ route, navigation, db, isConnected }) => {
 	);
 };
 
+/* ---------- STYLING ---------- */
 const styles = StyleSheet.create({
 	// Main view
 	container: {
