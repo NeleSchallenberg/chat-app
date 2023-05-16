@@ -52,24 +52,45 @@ The achievement objective is to build a chat app for mobile devices using React 
 
 ## Dependencies
 
--   "@expo/webpack-config": "^18.0.4",
--   "@react-navigation/native": "^6.1.6",
--   "@react-navigation/native-stack": "^6.9.12",
--   "expo": "~48.0.16",
--   "expo-status-bar": "~1.4.4",
--   "firebase": "^9.22.0",
--   "react": "18.2.0",
--   "react-dom": "18.2.0",
--   "react-native": "0.71.7",
--   "react-native-gifted-chat": "^2.1.0",
--   "react-native-safe-area-context": "4.5.0",
--   "react-native-screens": "~3.20.0",
--   "react-native-web": "~0.18.10",
--   "@react-native-community/netinfo": "9.3.7",
--   "@react-native-async-storage/async-storage": "1.17.11",
--   "expo-image-picker": "~14.1.1",
--   "expo-location": "~15.1.1",
--   "react-native-maps": "1.3.2"\_
+-   "@expo/webpack-config": "^18.0.4"
+-   "@react-navigation/native": "^6.1.6"
+-   "@react-navigation/native-stack": "^6.9.12"
+-   "expo": "~48.0.16"
+-   "expo-status-bar": "~1.4.4"
+-   "firebase": "^9.22.0"
+-   "react": "18.2.0"
+-   "react-dom": "18.2.0"
+-   "react-native": "0.71.7"
+-   "react-native-gifted-chat": "^2.1.0"
+-   "react-native-safe-area-context": "4.5.0"
+-   "react-native-screens": "~3.20.0"
+-   "react-native-web": "~0.18.10"
+-   "@react-native-community/netinfo": "9.3.7"
+-   "@react-native-async-storage/async-storage": "1.17.11"
+-   "expo-image-picker": "~14.1.1"
+-   "expo-location": "~15.1.1"
+-   "react-native-maps": "1.3.2"
+
+````"@expo/webpack-config": "^18.0.4",
+"@react-navigation/native": "^6.1.6",
+"@react-navigation/native-stack": "^6.9.12",
+"expo": "~48.0.16",
+"expo-status-bar": "~1.4.4",
+"firebase": "^9.22.0",
+"react": "18.2.0",
+"react-dom": "18.2.0",
+"react-native": "0.71.7",
+"react-native-gifted-chat": "^2.1.0",
+"react-native-safe-area-context": "4.5.0",
+"react-native-screens": "~3.20.0",
+"react-native-web": "~0.18.10",
+"@react-native-community/netinfo": "9.3.7",
+"@react-native-async-storage/async-storage": "1.17.11",
+"expo-image-picker": "~14.1.1",
+"expo-location": "~15.1.1",
+"react-native-maps": "1.3.2"```
+
+
 
 ## Setting up the app
 
@@ -104,3 +125,4 @@ The achievement objective is to build a chat app for mobile devices using React 
 ## Web View
 
 ![Meet App web view](https://github.com/NeleSchallenberg/chat-app/blob/main/assets/screenshot.png)
+````
