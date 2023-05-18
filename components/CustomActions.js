@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Alert } from 'react-native';
 
 // Import function to fetch action sheet
 import { useActionSheet } from '@expo/react-native-action-sheet';
@@ -57,15 +57,25 @@ const CustomActions = ({
 			let permissions =
 				await Location.requestForegroundPermissionsAsync();
 			if (permissions?.granted) {
-				const location = await Location.getCurrentPositionAsync({});
+				const location =
+					await Location.getCurrentPositionAsync(
+						{}
+					);
 				if (location) {
 					onSend({
 						location: {
-							longitude: location.coords.longitude,
-							latitude: location.coords.latitude,
+							longitude: location
+								.coords
+								.longitude,
+							latitude: location
+								.coords
+								.latitude,
 						},
 					});
-				} else Alert.alert('Error occurred while fetching location');
+				} else
+					Alert.alert(
+						'Error occurred while fetching location'
+					);
 			} else Alert.alert("Permissions haven't been granted.");
 		};
 
@@ -75,10 +85,14 @@ const CustomActions = ({
 			const newUploadRef = ref(storage, uniqueRefString);
 			const response = await fetch(imageURI);
 			const blob = await response.blob();
-			uploadBytes(newUploadRef, blob).then(async (snapshot) => {
-				const imageURL = await getDownloadURL(snapshot.ref);
-				onSend({ image: imageURL });
-			});
+			uploadBytes(newUploadRef, blob).then(
+				async (snapshot) => {
+					const imageURL = await getDownloadURL(
+						snapshot.ref
+					);
+					onSend({ image: imageURL });
+				}
+			);
 		};
 
 		// Create function to access media library
@@ -86,28 +100,42 @@ const CustomActions = ({
 			let permissions =
 				await ImagePicker.requestMediaLibraryPermissionsAsync();
 			if (permissions?.granted) {
-				let result = await ImagePicker.launchImageLibraryAsync();
+				let result =
+					await ImagePicker.launchImageLibraryAsync();
 				if (!result.canceled)
-					await uploadAndSendImage(result.assets[0].uri);
-				else Alert.alert("Permissions haven't been granted.");
+					await uploadAndSendImage(
+						result.assets[0].uri
+					);
+				else
+					Alert.alert(
+						"Permissions haven't been granted."
+					);
 			}
 		};
 
 		// Create function to access camera
 		const takePhoto = async () => {
-			let permissions = await ImagePicker.requestCameraPermissionsAsync();
+			let permissions =
+				await ImagePicker.requestCameraPermissionsAsync();
 			if (permissions?.granted) {
-				let result = await ImagePicker.launchCameraAsync();
+				let result =
+					await ImagePicker.launchCameraAsync();
 				if (!result.canceled)
-					await uploadAndSendImage(result.assets[0].uri);
-				else Alert.alert("Permissions haven't been granted.");
+					await uploadAndSendImage(
+						result.assets[0].uri
+					);
+				else
+					Alert.alert(
+						"Permissions haven't been granted."
+					);
 			}
 		};
 
 		// Generate unique reference string for image
 		const generateReference = (uri) => {
 			const timeStamp = new Date().getTime();
-			const imageName = uri.split('/')[uri.split('/').length - 1];
+			const imageName =
+				uri.split('/')[uri.split('/').length - 1];
 			return `${userID}-${timeStamp}-${imageName}`;
 		};
 	};
@@ -120,7 +148,9 @@ const CustomActions = ({
 			accessibilityHint='Shows you custom actions to send location, take picture or chose image from library'
 			accessibilityRole='button'>
 			<View style={[styles.wrapper, wrapperStyle]}>
-				<Text style={[styles.iconText, iconTextStyle]}>+</Text>
+				<Text style={[styles.iconText, iconTextStyle]}>
+					+
+				</Text>
 			</View>
 		</TouchableOpacity>
 	);
